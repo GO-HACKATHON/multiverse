@@ -46,12 +46,24 @@ module Stremer
       @consumer.subscribe("order")
     end
     
-    def init_bins_for_key key, client
+    def init_hourly_bins_for_key key, client
       bin_map = {
         '00'=> [], '01' => [], '02'=> [], '03' => [], '04'=> [], '05' => [], '06'=> [],
         '07'=> [], '08' => [], '09'=> [], '10' => [], '11'=> [], '12' => [], '13'=> [],
         '14'=> [], '15' => [], '16'=> [], '17' => [], '18'=> [], '19' => [], '20'=> [],
         '21'=> [], '22' => [], '23'=> []
+      }
+      client.put(key, bin_map)
+    end
+    
+    def init_minutely_bins_for_key key, client
+      bin_map = {
+        '00'=> [], '01' => [], '02'=> [], '03' => [], '04'=> [], '05' => [], '06'=> [],'07'=> [], '08' => [], '09'=> [], '10' => [],
+        '11' => [], '12'=> [], '13' => [], '14'=> [], '15' => [], '16'=> [],'17'=> [], '18' => [], '19'=> [], '20' => [],
+        '21' => [], '22'=> [], '23' => [], '24'=> [], '25' => [], '26'=> [],'27'=> [], '28' => [], '29'=> [], '20' => [],
+        '31' => [], '32'=> [], '33' => [], '34'=> [], '35' => [], '36'=> [], '37'=> [], '38' => [], '39'=> [], '40' => [],
+        '41' => [], '42'=> [], '43' => [], '44'=> [], '45' => [], '46'=> [], '47'=> [], '48' => [], '49'=> [], '50' => [],
+        '51' => [], '52'=> [], '53' => [], '54'=> [], '55' => [], '56'=> [], '57'=> [], '58' => [], '59'=> [], '60' => []
       }
       client.put(key, bin_map)
     end
@@ -67,7 +79,7 @@ module Stremer
             hourlycancelation_key = Time.at(timestamp).to_datetime.strftime("hourlycancelation:%Y%m%d")
             key = Aerospike::Key.new("test", "order_cancelation", hourlycancelation_key)
             
-            init_bins_for_key(key, client) unless client.exists(key)
+            init_hourly_bins_for_key(key, client) unless client.exists(key)
 
             record = client.get(key)
             point = Aerospike::GeoJSON.new({type: "Point", coordinates: parsed_message["body"]["location"]})
