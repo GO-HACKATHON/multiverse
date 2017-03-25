@@ -6,7 +6,7 @@ class OrderEvent
         timestamp: '2017-02-03T10:17:40.392Z'
       },
       body: {
-        location: [-6.178005,106.7881563],
+        location: Location.generate,
         order_id: 'order-123',
         driver_id: 'D12323',
         customer_id: 'C1234123',
@@ -22,7 +22,7 @@ class OrderEvent
         timestamp: '2017-02-03T10:17:40.392Z'
       },
       body: {
-        location: [-6.178005,106.7881563],
+        location: Location.generate,
         order_id: 'order-123',
         customer_id: 'C1234123',
         merchant_id: 'M0001',
