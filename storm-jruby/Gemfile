@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+group :graviton do
+ gem "aerospike"
+end
