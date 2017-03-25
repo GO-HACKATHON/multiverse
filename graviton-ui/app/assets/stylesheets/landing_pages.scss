@@ -1,0 +1,15 @@
+// Place all the styles related to the landing_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+.heat-map {
+ height: 580px;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+ height: 100%;
+ margin: 0;
+ padding: 0;
+}
