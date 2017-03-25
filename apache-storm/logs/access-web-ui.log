@@ -1,0 +1,5 @@
+2017-03-25 05:25:42.065 o.a.s.l.f.AccessLoggingFilter [INFO] Access from: 103.43.128.51 url: http://139.59.229.198:8772/ principal: 
+2017-03-25 05:25:42.671 o.a.s.l.f.AccessLoggingFilter [INFO] Access from: 103.43.128.51 url: http://139.59.229.198:8772/api/v1/cluster/configuration principal: 
+2017-03-25 05:25:42.672 o.a.s.l.f.AccessLoggingFilter [INFO] Access from: 103.43.128.51 url: http://139.59.229.198:8772/api/v1/supervisor/summary principal: 
+2017-03-25 05:25:42.674 o.a.s.l.f.AccessLoggingFilter [INFO] Access from: 103.43.128.51 url: http://139.59.229.198:8772/api/v1/topology/summary principal: 
+2017-03-25 05:25:42.682 o.a.s.l.f.AccessLoggingFilter [INFO] Access from: 103.43.128.51 url: http://139.59.229.198:8772/api/v1/cluster/summary principal: 
