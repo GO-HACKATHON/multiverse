@@ -3,19 +3,80 @@
   <head>
     <title>GravitonUi</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
-    <div id="map">
+    <div class="app app-header-fixed ">
       
+      <header id="header" class="app-header navbar" role="menu">
+        <!-- navbar header -->
+        <div class="navbar-header bg-dark">
+          <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
+            <i class="glyphicon glyphicon-cog"></i>
+          </button>
+          
+          <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
+            <i class="glyphicon glyphicon-align-justify"></i>
+          </button>
+          <a href="#/" class="navbar-brand text-lt">
+            <i class="fa fa-btc"></i>
+            <span class="hidden-folded m-l-xs">Multiverse</span>
+          </a>
+          
+        </div>
+      </header>
+      
+      
+      <aside id="aside" class="app-aside hidden-xs bg-dark">
+        <div class="aside-wrap">
+          <div class="navi-wrap">
+            
+            <!-- nav -->
+            <nav ui-nav class="navi clearfix">
+              
+              <ul class="nav">
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                  <span>Navigation</span>
+                </li>
+                
+                <li>
+                  <a href class="auto">      
+                    <span class="pull-right text-muted">
+                      <i class="fa fa-fw fa-angle-right text"></i>
+                      <i class="fa fa-fw fa-angle-down text-active"></i>
+                    </span>
+                    <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+                    <span class="font-bold">Dashboard</span>
+                  </a>
+                </li>
+                <li class="line dk"></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
+      <!-- / aside -->
+      
+      
+      <!-- content -->
+      <div id="content" class="app-content" role="main">
+        <div class="app-content-body ">
+          
+          <div class="bg-light lter b-b wrapper-md">
+            <h1 class="m-n font-thin h3">Beauty Your Data</h1>
+          </div>
+          
+          <div class="wrapper-md"><%= yield %></div>
+        </div>
+      </div>
     </div>
-    
+      
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=<%= CONFIG[:google_map_api_key]%>&libraries=visualization&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=<%= CONFIG[:google_map_api_key]%>&libraries=visualization&callback=initMap">
     </script>
+
   </body>
 </html>

@@ -8,12 +8,10 @@ function initMap() {
   map.addListener("center_changed", function (data) {
     console.log(map.center.lat());
     console.log(map.center.lng());
-    // 
-    // 
-    // console.log(data);
   })
   
   $.get("/api/v1/maps", function (data) {
+    console.log(data);
     var heatPoints = data.map( function (point) {
       return new google.maps.LatLng(point[0], point[1]);
     })
