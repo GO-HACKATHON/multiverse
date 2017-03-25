@@ -41,5 +41,4 @@ function renderMap(timeRange = 0) {
   
 
   
-  requestHeatMapData(0)
 }
