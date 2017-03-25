@@ -21,7 +21,8 @@ module GravitonUi
   end
   
   def self.aerospike
-    Aerospike::Client.new "127.0.0.1"
+    aerospike_config = CONFIG[:aerospike];
+    Aerospike::Client.new aerospike_config[:host]
   end
   
 end
