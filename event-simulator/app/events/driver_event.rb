@@ -31,8 +31,9 @@ class DriverEvent
   def current_timestamp
     Time.now.utc.to_i
   end
+
   def sample_driver_id
-    "D-#{rand(1000...2000)}"
+    "driver-#{rand(1000...2000)}"
   end
 
 end

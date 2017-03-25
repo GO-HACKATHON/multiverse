@@ -31,7 +31,43 @@ class OrderEvent
     }
   end
 
+  def gofood_order_canceled
+    {
+      header: {
+        event_name: 'gofood.order.canceled',
+        timestamp: current_timestamp
+      },
+      body: {
+        location: Location.generate,
+        order_id: sample_order_id,
+        customer_id: sample_customer_id,
+        merchant_id: sample_merchant_id,
+        reason: "waited.too.long"
+      }
+    }
+  end
+
+  def order_canceled
+    {
+      header: {
+        event_name: 'order.canceled',
+        timestamp: current_timestamp
+      },
+      body: {
+        location: Location.generate,
+        order_id: sample_order_id,
+        customer_id: sample_customer_id,
+        reason: "waited.too.long"
+      }
+    }
+  end
+
   private
+
+  def current_timestamp
+    Time.now.utc.to_i
+  end
+
   def sample_driver_id
     "driver-#{rand(1000...2000)}"
   end
