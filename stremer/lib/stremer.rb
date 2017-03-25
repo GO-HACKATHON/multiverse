@@ -116,10 +116,11 @@ module Stremer
     end
   end
 
-  class DriverConsumer
+  class EventConsumer
     def initialize
       @consumer = Consumer.new
-      @consumer.subscribe("driver")
+      # event topic(previously: "driver", "order")
+      @consumer.subscribe("event")
     end
 
     def init_hourly_bins_for_key key, client
