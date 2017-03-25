@@ -11,6 +11,6 @@ while(true) do
   publisher.publish('driver', driver_event.driver_idle_on_location)
   publisher.publish('driver', driver_event.driver_active_on_location)
   publisher.publish('order', order_event.gofood_order_booked)
-  publisher.publish('order', order_event.gofood_order_canceled)
+  publisher.publish('order', order_event.order_canceled)
   print '.'
 end
