@@ -1,0 +1,4 @@
+aerospike:
+  host: 127.0.0.1
+kafka:
+  group_id: "my-consumer"
