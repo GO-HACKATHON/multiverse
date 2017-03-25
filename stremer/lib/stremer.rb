@@ -10,42 +10,38 @@ module Stremer
   def self.root
     File.expand_path('./')
   end
-  
+
   def self.config
     ActiveSupport::HashWithIndifferentAccess.new(
       YAML.load(ERB.new(IO.read("#{root}/config/streamer.yml")).result)
     )
   end
-  
+
   def self.aerospike
     return Aerospike::Client.new(config[:aerospike][:host])
-  end  
+  end
 
   class Consumer
-    
     def initialize
       kafka = Kafka.new(seed_brokers: ["10.17.10.155:9091"])
       @consumer ||= kafka.consumer(group_id: Stremer.config[:kafka][:group_id])
     end
-    
+
     def subscribe topic
       @consumer.subscribe(topic)
     end
-    
-    
+
     def on_messages &block
       @consumer.each_message &block
     end
-    
   end
 
   class CancelationConsumer
-    
     def initialize
       @consumer = Consumer.new
       @consumer.subscribe("order")
     end
-    
+
     def init_hourly_bins_for_key key, client
       bin_map = {
         '00'=> [], '01' => [], '02'=> [], '03' => [], '04'=> [], '05' => [], '06'=> [],
@@ -55,7 +51,7 @@ module Stremer
       }
       client.put(key, bin_map)
     end
-    
+
     def init_minutely_bins_for_key key, client
       bin_map = {
         '00'=> [], '01' => [], '02'=> [], '03' => [], '04'=> [], '05' => [], '06'=> [],'07'=> [], '08' => [], '09'=> [], '10' => [],
@@ -67,35 +63,56 @@ module Stremer
       }
       client.put(key, bin_map)
     end
-    
+
     def listen!
       client = Stremer.aerospike
       @consumer.on_messages do |message|
         begin
           parsed_message = JSON.parse(message.value)
-          
+          point = Aerospike::GeoJSON.new({type: "Point", coordinates: parsed_message["body"]["location"]})
+
           if parsed_message["header"]["event_name"] == "order.canceled"
             timestamp = parsed_message["header"]["timestamp"].to_i
-            hourlycancelation_key = Time.at(timestamp).to_datetime.strftime("hourlycancelation:%Y%m%d")
-            key = Aerospike::Key.new("test", "order_cancelation", hourlycancelation_key)
-            
-            init_hourly_bins_for_key(key, client) unless client.exists(key)
-
-            record = client.get(key)
-            point = Aerospike::GeoJSON.new({type: "Point", coordinates: parsed_message["body"]["location"]})
-            bins_key = Time.at(timestamp).to_datetime.strftime("%H")
-            bin_temp = record.bins[bins_key]
-            bin_temp << point
-            record.bins[bins_key] = bin_temp
-            client.put(key, record.bins)
+            hour_key = hourlycancelation_key_for_timestamp(timestamp)
+            minute_key = minutelycancelation_key_for_timestamp(timestamp)
+            add_point_to_hourlycancelation_stats(timestamp, client, hour_key, point)
+            add_point_to_minutelycancelation_stats(timestamp, client, minute_key, point)
             print(".")
           end
         rescue => e
           puts e.inspect
         end
-        # puts JSON.parse(message.value)["header"]
       end
     end
-    
+
+    def add_point_to_hourlycancelation_stats(timestamp, client, key, point)
+      init_hourly_bins_for_key(key, client) unless client.exists(key)
+      record = client.get(key)
+      bins_key = Time.at(timestamp).to_datetime.strftime("%H")
+      bin_temp = record.bins[bins_key]
+      bin_temp << point
+      record.bins[bins_key] = bin_temp
+      client.put(key, record.bins)
+    end
+
+    def add_point_to_minutelycancelation_stats(timestamp, client, key, point)
+      init_minutely_bins_for_key(key, client) unless client.exists(key)
+      record = client.get(key)
+      bins_key = Time.at(timestamp).to_datetime.strftime("%M")
+      bin_temp = record.bins[bins_key]
+      bin_temp << point
+      record.bins[bins_key] = bin_temp
+      client.put(key, record.bins)
+    end
+
+    def hourlycancelation_key_for_timestamp(timestamp)
+      hourlycancelation_key = Time.at(timestamp).to_datetime.strftime("hourlycancelation:%Y%m%d")
+      Aerospike::Key.new("test", "order_cancelation", hourlycancelation_key)
+    end
+
+    def minutelycancelation_key_for_timestamp(timestamp)
+      minutelycancelation_key = Time.at(timestamp).to_datetime.strftime("minutelycancelation:%Y%m%d%H")
+      Aerospike::Key.new("test", "order_cancelation", minutelycancelation_key)
+    end
   end
 end
