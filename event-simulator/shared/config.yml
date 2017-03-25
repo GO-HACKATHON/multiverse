@@ -1,0 +1,14 @@
+defaults: &defaults
+  app_name: "EventSimulator"
+
+development:
+  <<: *defaults
+  kafka_hosts:
+    - "127.0.0.1:3000"
+    - "127.0.0.1:3001"
+    - "127.0.0.1:3002"
+
+test:
+  <<: *defaults
+  kafka_hosts:
+    - "127.0.0.1:3000"
