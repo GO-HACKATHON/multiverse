@@ -7,6 +7,10 @@ Simulate various events for Graviton.
 
 EventSimulator will act as event producer for Kafka
 
+```
+./bin/run
+```
+
 
 ## By
 Multiverse team

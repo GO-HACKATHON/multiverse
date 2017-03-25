@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require "./shared/initializer.rb"
+require "irb"
+
+publisher = Publisher.new
+driver_event = DriverEvent.new
+order_event = OrderEvent.new
+
+while(true) do
+  publisher.publish('driver', driver_event.driver_idle_on_location)
+  publisher.publish('driver', driver_event.driver_active_on_location)
+  publisher.publish('order', order_event.gofood_order_booked)
+  publisher.publish('order', order_event.gofood_order_canceled)
+  print '.'
+end
