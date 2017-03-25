@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GravitonUi</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <div id="map">
+      
+    </div>
+    
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=<%= CONFIG[:google_map_api_key]%>&libraries=visualization&callback=initMap">
+    </script>
+  </body>
+</html>
