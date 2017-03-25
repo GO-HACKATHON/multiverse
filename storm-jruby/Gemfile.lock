@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aerospike (1.0.12)
+      bcrypt (~> 3.1)
+      msgpack (~> 0.5)
+    bcrypt (3.1.11)
+    bcrypt (3.1.11-java)
+    msgpack (0.7.6)
+    msgpack (0.7.6-java)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  aerospike
+
+BUNDLED WITH
+   1.14.6
