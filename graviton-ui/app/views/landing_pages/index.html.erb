@@ -1,7 +1,19 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
-      <div class="panel-heading font-bold">Spline</div>
+      <div class="panel-heading font-bold">
+        Canceled order count
+        <div class="pull-right">
+          <select name="timeRange" id="cancelationMapTimeRange">
+            <option value="0">last 5 minutes</option>
+            <option value="1">last 15 minutes</option>
+            <option value="2">last 30 minutes</option>
+            <option value="3">last 1 hours</option>
+            <option value="4">today</option>
+            <option value="5">Custom</option>
+          </select>
+        </div>
+      </div>
       <div class="panel-body heat-map" id="map"></div>
     </div>
   </div>

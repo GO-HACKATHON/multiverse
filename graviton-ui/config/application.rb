@@ -19,10 +19,9 @@ Bundler.require(*Rails.groups)
 module GravitonUi
   class Application < Rails::Application
   end
-  
-  def self.aerospike
-    aerospike_config = CONFIG[:aerospike];
-    Aerospike::Client.new aerospike_config[:host]
+
+  def self.redis
+    return Redis.new(CONFIG[:redis])
   end
   
 end
