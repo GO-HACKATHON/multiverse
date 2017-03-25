@@ -6,3 +6,4 @@ gemspec
 gem "ruby-kafka"
 gem "aerospike"
 gem "activesupport"
+gem "pry"
