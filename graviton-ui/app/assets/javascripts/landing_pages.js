@@ -5,13 +5,15 @@ $(document).ready(function () {
 
   
   $("#cancelationMapTimeRange").on("change", function (e) {
-    var data = $("#cancelationMapTimeRange option:selected").val();
-    renderMap(data);
+    var timeRange = $("#cancelationMapTimeRange option:selected").val();
+    var eventName = $("#eventName option:selected").val();
+    renderMap(timeRange, eventName);
   });
   
   $("#eventName").on("change", function (e) {
-    var data = $("#eventName option:selected").val();
-    renderMap(data);
+    var timeRange = $("#cancelationMapTimeRange option:selected").val();
+    var eventName = $("#eventName option:selected").val();
+    renderMap(timeRange, eventName);
   });
   
 });
