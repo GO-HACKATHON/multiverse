@@ -40,14 +40,12 @@ zookeeper.connect=localhost:2181
 
 ## Create kafka topic
 ```
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic order
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic driver
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic event
 ```
 
 ## Console consumer
 ```
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --from-beginning --topic order
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9093 --from-beginning --topic driver
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9091 --from-beginning --topic event
 ```
 
 
