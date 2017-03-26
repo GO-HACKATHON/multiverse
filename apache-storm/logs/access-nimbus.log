@@ -1,0 +1,8 @@
+2017-03-25 05:25:43.232 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 3 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.232 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 1 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.235 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 4 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.241 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 2 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.347 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 5 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.379 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 6 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.383 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 7 access from:  principal:  operation: getClusterInfo
+2017-03-25 05:25:43.450 o.a.s.l.ThriftAccessLogger [INFO] Request ID: 8 access from:  principal:  operation: getNimbusConf
