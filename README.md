@@ -4,7 +4,7 @@ Multiverse::Graviton
 Real time geospatial data analytic & visualization platform
 
 ## Background
-Booming of geolocation data with high velocity. 
+Booming of geolocation data with high volume, variety, & velocity. 
 Example: 
      
 - Gojek data: driver real time location, order location, merchant location, etc.
@@ -13,13 +13,16 @@ Example:
 ## Problem
 
 **Business perspective:**
+
 The need to visualise & analyse real time geospatial data.
 
 **Technical perspective:**
+
 The need of platform, library, data modelling/architecture that can easily visualise & analyse realtime geospatial data.
 
 ## Challenges
 Realtime Geospatial data characteristics:
+
 - high volume
 - high variety
 - high velocity
@@ -27,24 +30,59 @@ Realtime Geospatial data characteristics:
 Some people call it: BIG DATA
 
 ## Multiverse solution
-In this project we provide
+In this project we provide:
+
 - Data modelling (convention & configuration)
 - Data architecture
 - Data visualisation
 
-that can be reusable for any kind of time series geospatial/geolocation data.
+...that can be reusable for any kind of time series geospatial/geolocation data.
 
 Our goal is to create architecture & data modelling that:
- - Horizontally scalable
+- Optimised for timeseries realtime geolocation data.
+- Horizontally scalable
 - Fault tolerant
-- Near realtime insight
-- Optimised for realtime geolocation data.
+- Produce near realtime insight
 
+## Current available query of data aggregation:
+- Query minutely aggregated geolocation data per event_name.
+- Query hourly aggregated geolocation data per event_name.
+- Query daily aggregated geolocation data per event_name.
 
 ## Guideline
 
-(TBA)
+Event data format:
 
+```
+   {
+      "header": {
+        "event_name": "event_name",
+        "timestamp": utc_unix_formatted_timestamp
+      },
+      "body": {
+        "location": [lat, long],
+        "other_data1": "sample1",
+        "other_data2": "sample2",
+      }
+    }
+```
+
+Example:
+```json
+   {
+      "header": {
+        "event_name": "gofood.order.canceled",
+        "timestamp": 1490492075
+      },
+      "body": {
+        "location": [-6.178005,106.7881563],
+        "order_id": "order-1234",
+        "customer_id": "customer-345",
+        "merchant_id": "merchant-678",
+        "reason": "waited.too.long"
+      }
+    }
+```
 
 
 ## Architecture
