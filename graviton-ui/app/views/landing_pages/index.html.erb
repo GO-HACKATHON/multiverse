@@ -2,7 +2,15 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading font-bold">
-        Canceled order count
+        
+        <select name="eventName" id="eventName">
+          <option value="order.canceled">order.canceled</option>
+          <option value="gofood.order.canceled">gofood.order.canceled</option>
+          <option value="gofood.order.booked">gofood.order.booked</option>
+          <option value="gofood.order.booked">driver.active.on.location</option>
+          <option value="gofood.order.booked">driver.idle.on.location'</option>
+        </select>
+        
         <div class="pull-right">
           <select name="timeRange" id="cancelationMapTimeRange">
             <option value="minutly">last 1 minutes</option>
@@ -10,6 +18,7 @@
             <option value="daily">today</option>
           </select>
         </div>
+        
       </div>
       <div class="panel-body heat-map" id="map"></div>
     </div>
