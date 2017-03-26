@@ -1,0 +1,11 @@
+2017-03-25 05:25:01.657 o.a.s.u.core [INFO] Starting ui server for storm version '1.0.1'
+2017-03-25 05:25:01.695 o.a.s.d.m.MetricsUtils [INFO] Using statistics reporter plugin:org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter
+2017-03-25 05:25:01.697 o.a.s.d.m.r.JmxPreparableReporter [INFO] Preparing...
+2017-03-25 05:25:01.803 o.a.s.d.common [INFO] Started statistics report plugin...
+2017-03-25 05:25:02.683 o.a.s.s.o.e.j.s.Server [INFO] jetty-7.x.y-SNAPSHOT
+2017-03-25 05:25:02.996 o.a.s.s.o.e.j.s.h.ContextHandler [INFO] started o.a.s.s.o.e.j.s.ServletContextHandler{/,null}
+2017-03-25 05:25:03.122 o.a.s.s.o.e.j.s.AbstractConnector [INFO] Started SelectChannelConnector@0.0.0.0:8772
+2017-03-25 05:25:43.119 o.a.s.u.NimbusClient [WARN] Using deprecated config nimbus.host for backward compatibility. Please update your storm.yaml so it only has config nimbus.seeds
+2017-03-25 05:25:43.119 o.a.s.u.NimbusClient [WARN] Using deprecated config nimbus.host for backward compatibility. Please update your storm.yaml so it only has config nimbus.seeds
+2017-03-25 05:25:43.127 o.a.s.u.NimbusClient [WARN] Using deprecated config nimbus.host for backward compatibility. Please update your storm.yaml so it only has config nimbus.seeds
+2017-03-25 05:25:43.137 o.a.s.u.NimbusClient [WARN] Using deprecated config nimbus.host for backward compatibility. Please update your storm.yaml so it only has config nimbus.seeds
