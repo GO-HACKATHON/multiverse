@@ -51,34 +51,34 @@ Event data format:
 
 ```
    {
-      header: {
-        event_name: 'event_name',
-        timestamp: utc_unix_formatted_timestamp
+      "header": {
+        "event_name": "event_name",
+        "timestamp": utc_unix_formatted_timestamp
       },
-      body: {
-        location: [lat, long],
-        other_data: "sample1",
-        other_data: "sample2",
+      "body": {
+        "location": [lat, long],
+        "other_data1": "sample1",
+        "other_data2": "sample2",
       }
     }
 ```
 
 Example:
-```
+```json
    {
-      header: {
-        event_name: 'gofood.order.canceled',
-        timestamp: 1490492075
+      "header": {
+        "event_name": "gofood.order.canceled",
+        "timestamp": 1490492075
       },
-      body: {
-        location: [-6.178005,106.7881563],
-        order_id: "order-1234",
-        customer_id: "customer-345",
-        merchant_id: "merchant-678,
-        reason: "waited.too.long"
+      "body": {
+        "location": [-6.178005,106.7881563],
+        "order_id": "order-1234",
+        "customer_id": "customer-345",
+        "merchant_id": "merchant-678",
+        "reason": "waited.too.long"
       }
     }
-
+```
 
 
 ## Architecture
