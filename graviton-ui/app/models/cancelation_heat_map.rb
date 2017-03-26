@@ -19,7 +19,7 @@ class CancelationHeatMap
     
     
       def hourly_base_key
-        return Time.current.strftime("hourlycancelation:%Y%m%d")
+        return Time.current.strftime("hourlyorder.canceled:%Y%m%d")
       end
       
       def minutly_base_key
