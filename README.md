@@ -111,6 +111,10 @@ Example:
     To build rich interactive front end visualization of analytical data.
 
 
+### Sample front-end screenshot
+heatmap of `order.canceled` event today
+![screen shot 2017-03-26 at 9 34 41 am](https://cloud.githubusercontent.com/assets/176688/24327962/fa40c2a0-1207-11e7-9e6c-28058c4f78ca.png)
+
 
 ## Team:
 Multiverse
