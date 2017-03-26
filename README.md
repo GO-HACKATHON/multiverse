@@ -1,6 +1,51 @@
 Multiverse::Graviton
 ====
 
+Real time geospatial data analytic & visualization platform
+
+## Background
+Booming of geolocation data with high velocity. 
+Example: 
+     
+- Gojek data: driver real time location, order location, merchant location, etc.
+- iOT data: humidity sensor, air pollution sensor, river level sensor, etc
+
+## Problem
+
+**Business perspective:**
+The need to visualise & analyse real time geospatial data.
+
+**Technical perspective:**
+The need of platform, library, data modelling/architecture that can easily visualise & analyse realtime geospatial data.
+
+## Challenges
+Realtime Geospatial data characteristics:
+- high volume
+- high variety
+- high velocity
+
+Some people call it: BIG DATA
+
+## Multiverse solution
+In this project we provide
+- Data modelling (convention & configuration)
+- Data architecture
+- Data visualisation
+
+that can be reusable for any kind of time series geospatial/geolocation data.
+
+Our goal is to create architecture & data modelling that:
+ - Horizontally scalable
+- Fault tolerant
+- Near realtime insight
+- Optimised for realtime geolocation data.
+
+
+## Guideline
+
+(TBA)
+
+
 
 ## Architecture
 
@@ -26,7 +71,6 @@ Multiverse::Graviton
 5. d3.js
 
     To build rich interactive front end visualization of analytical data.
-
 
 
 
