@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+- clone this repository
+  ```
+  cd stremer
+  bundle console
+
+  consumer = Stremer::EventConsumer.new
+  consumer.listen!
+  ```
 
 ## Development
 
@@ -33,8 +40,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/stremer.
-
-
-
-x = Stremer::CancelationConsumer.new
-x.listen!
