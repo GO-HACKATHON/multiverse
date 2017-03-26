@@ -44,6 +44,10 @@ Our goal is to create architecture & data modelling that:
 - Fault tolerant
 - Produce near realtime insight
 
+## Current available query of data aggregation:
+- Query minutely aggregated geolocation data per event_name.
+- Query hourly aggregated geolocation data per event_name.
+- Query daily aggregated geolocation data per event_name.
 
 ## Guideline
 
