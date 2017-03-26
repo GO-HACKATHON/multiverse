@@ -34,7 +34,7 @@ class CancelationHeatMap
         key = Aerospike::Key.new("test", "event", minutly_base_key)
         data = GravitonUi.aerospike.get(key)
         
-        current_minute = Time.now.strftime("%M")
+        current_minute = (Time.now - 1.minute).strftime("%M")
         coordinate_data = data.bins[current_minute].map do |coordinate|
           JSON.parse(coordinate)
         end
@@ -46,8 +46,7 @@ class CancelationHeatMap
         data = GravitonUi.aerospike.get(key)
         
         current_hour = Time.now.strftime("%H")
-        
-        coordinate_data = data.bins["08"].map do |coordinate|
+        coordinate_data = data.bins[current_hour].map do |coordinate|
           JSON.parse(coordinate)
         end
         return coordinate_data

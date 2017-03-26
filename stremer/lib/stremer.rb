@@ -205,7 +205,7 @@ module Stremer
     def add_point_to_minutely_stats(timestamp, client, key, point)
       init_minutely_bins_for_key(key, client) unless client.exists(key)
       record = client.get(key)
-      bins_key = Time.at(timestamp).to_datetime.strftime("%M")
+      bins_key = Time.at(timestamp).to_time.strftime("%M")
       bin_temp = record.bins[bins_key]
       bin_temp << point
       record.bins[bins_key] = bin_temp
