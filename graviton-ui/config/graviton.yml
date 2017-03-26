@@ -1,4 +1,6 @@
 google_map_api_key: AIzaSyCecePmlfL52zfqppE02LAliOvUZW82xPA
+aerospike:
+  host: "127.0.0.1"
 redis:
   host: 127.0.0.1
   port: 6379

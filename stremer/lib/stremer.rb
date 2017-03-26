@@ -213,18 +213,18 @@ module Stremer
     end
 
     def daily_key_for_timestamp(timestamp, event)
-      pk = Time.at(timestamp).to_datetime.strftime("daily#{event}:%Y%m%d")
-      Aerospike::Key.new("test", event, pk)
+      pk = Time.at(timestamp).to_datetime.strftime("daily#{event}:%Y%m")
+      Aerospike::Key.new("test", "event", pk)
     end
 
     def hourly_key_for_timestamp(timestamp, event)
       pk = Time.at(timestamp).to_datetime.strftime("hourly#{event}:%Y%m%d")
-      Aerospike::Key.new("test", event, pk)
+      Aerospike::Key.new("test", "event", pk)
     end
 
     def minutely_key_for_timestamp(timestamp, event)
       pk = Time.at(timestamp).to_datetime.strftime("minutely#{event}:%Y%m%d%H")
-      Aerospike::Key.new("test", event, pk)
+      Aerospike::Key.new("test", "event", pk)
     end
   end
 end

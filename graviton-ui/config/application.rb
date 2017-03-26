@@ -24,4 +24,8 @@ module GravitonUi
     return Redis.new(CONFIG[:redis])
   end
   
+  def self.aerospike
+    return Aerospike::Client.new(CONFIG[:aerospike][:host])
+  end
+  
 end
